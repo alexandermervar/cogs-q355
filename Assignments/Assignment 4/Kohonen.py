@@ -14,6 +14,7 @@ learningRate = 0.01
 xSize = 10
 ySize = 10
 weightVectorSize = 3
+mapSize = xSize * ySize
 
 # Define Frequency of Input Vectors
 # TODO: Change to fit assignment
@@ -23,7 +24,7 @@ blueFrequency  = 0
 
 # Define the number of iterations
 # TODO: Change to fit assignment
-iterations = 1
+iterations = 500
 
 
 # Define an random X*Y*WV array
@@ -50,21 +51,7 @@ for i in range(iterations):
             # Calculate the external input (The dot product of the input vector and the weight vector)
             externalInput = np.dot(inputVector, selectedUnit)
 
-            # Calculate the lateral input for the selected unit
-            lateralInputSelectedUnit = externalInput * 8
-
-            # Calculate the eta of the selcted unit
-            if (lateralInputSelectedUnit + externalInput <= 0):
-                eta = 0
-            elif (lateralInputSelectedUnit + externalInput >= 5):
-                eta = 5
-            else:
-                eta = lateralInputSelectedUnit + externalInput
-
-
-            # Calculate the new weight vector for the selected unit
-            for l in range(weightVectorSize):
-                weightMatrix[j,k,l] = (weightMatrix[j,k,l] + learningRate * eta * (lateralInputSelectedUnit + externalInput))/dist(inputVector, selectedUnit)
+            tmp = externalInput
 
             # Traverse to every other unit
             for l in range(xSize):
@@ -73,23 +60,26 @@ for i in range(iterations):
                         continue
                     else:
                         # Select a new SOFM Unit
-                        selectedUnit2 = weightMatrix[l,m]
+                        #xval and yval are the coordinates of the current units
+                        for p in range(-8,8):
+                            for q in range(-8,8):
+                                edist = np.sqrt(p**2 + q**2)
+                                modx = np.mod(j + p, mapSize)
+                                mody = np.mod(k + q, mapSize)
 
-                        # TODO: Add wrap-around mechanic
-                        # Calculate the lateral input
-                        if (dist((j,k), (l,m)) < 3):
-                            lateralInput = eta * 8
-                        elif (8 > dist((j,k), (l,m)) > 3):
-                            lateralInput = eta * -1
-                        else:
-                            lateralInput = 0
+                                # Add both the external inputs and neighbor inputs into a new variable
+                                tmp += weightMatrix[modx, mody,]
+                        
+            # Calcualte eta for tmp
+            if (tmp <= 0):
+                eta = 0
+            elif (tmp >= 5):
+                eta = 5
+            else:
+                eta = tmp
 
-                        # Calculate the external input
-                        externalInput2 = np.dot(weightMatrix[j,k], selectedUnit2)
-
-                        # Calculate the change in weights
-                        for n in range(weightVectorSize):
-                            weightMatrix[l,m,n] = (weightMatrix[l,m,n] + learningRate * eta * (lateralInput + externalInput2))/dist(inputVector, selectedUnit2)
+            # Calculate the new weight vector for the selected unit
+            weightMatrix[j,k] = selectedUnit + learningRate * eta * (inputVector + tmp)
 
 # Produce an Image
 plt.imshow(weightMatrix)
