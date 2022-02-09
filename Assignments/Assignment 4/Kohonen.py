@@ -59,6 +59,7 @@ for i in range(iterations):
                     if (i == l & j == m):
                         continue
                     else:
+                        # TODO: Fix wrap around mechanic
                         # Select a new SOFM Unit
                         #xval and yval are the coordinates of the current units
                         for p in range(-8,8):
