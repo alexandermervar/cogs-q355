@@ -1,8 +1,8 @@
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 from matplotlib import colors
-from math import dist
 
 fig, ax = plt.subplots(figsize=(10,10))
 
@@ -11,10 +11,10 @@ learningRate = 0.01
 
 # Define weight matrix size
 # TODO: Change to fit assignment
-xSize = 10
-ySize = 10
+xSize = 50
+ySize = 50
 weightVectorSize = 3
-mapSize = xSize * ySize
+mapSize = xSize
 
 # Define Frequency of Input Vectors
 # TODO: Change to fit assignment
@@ -24,7 +24,7 @@ blueFrequency  = 0
 
 # Define the number of iterations
 # TODO: Change to fit assignment
-iterations = 500
+iterations = 50
 
 
 # Define an random X*Y*WV array
@@ -36,11 +36,11 @@ for i in range(iterations):
 
     # Create input vector
     if inputVectorSelector < redFrequency:
-        inputVector = [1, 0, 0]
-    elif inputVectorSelector < greenFrequency:
-        inputVector = [0, 1, 0]
+        inputVector = np.array([1, 0, 0])
+    elif inputVectorSelector < redFrequency + greenFrequency:
+        inputVector = np.array([0, 1, 0])
     else:
-        inputVector = [0, 0, 1]
+        inputVector = np.array([0, 0, 1])
 
     # Traverse the matrix
     for j in range(xSize):
@@ -61,15 +61,25 @@ for i in range(iterations):
                     else:
                         # TODO: Fix wrap around mechanic
                         # Select a new SOFM Unit
-                        #xval and yval are the coordinates of the current units
+                        # xval and yval are the coordinates of the current units
                         for p in range(-8,8):
                             for q in range(-8,8):
-                                edist = np.sqrt(p**2 + q**2)
+                                # TODO: What is this?
+                                # edist = np.sqrt(p**2 + q**2)
                                 modx = np.mod(j + p, mapSize)
                                 mody = np.mod(k + q, mapSize)
+                                otherUnit = weightMatrix[modx, mody]
+
+                                # Calculate lateral input
+                                if (np.dot(inputVector, otherUnit) < 3):
+                                    lateralInput = np.dot(inputVector, otherUnit) * 8
+                                elif (3 > np.dot(inputVector, otherUnit) < 8):
+                                    lateralInput = np.dot(inputVector, otherUnit) * -1
+                                else:
+                                    lateralInput = 0
 
                                 # Add both the external inputs and neighbor inputs into a new variable
-                                tmp += weightMatrix[modx, mody,]
+                                tmp += lateralInput
                         
             # Calcualte eta for tmp
             if (tmp <= 0):
@@ -80,7 +90,7 @@ for i in range(iterations):
                 eta = tmp
 
             # Calculate the new weight vector for the selected unit
-            weightMatrix[j,k] = selectedUnit + learningRate * eta * (inputVector + tmp)
+            weightMatrix[j,k] = (selectedUnit + (learningRate * eta * inputVector))/np.linalg.norm(inputVector - selectedUnit)
 
 # Produce an Image
 plt.imshow(weightMatrix)
