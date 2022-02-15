@@ -7,7 +7,7 @@ def nonlin(x, deriv=False):
         return 1/(1+np.exp(-x))
 
 # input dataset as a matrix for the XOR problem
-x = np.array([[0,0], [0,1], [1,0], [1,1]])
+x = np.array([[0,0,1], [0,1,1], [1,0,1], [1,1,1]])
 
 # output dataset as a matrix for the XOR problem
 y = np.array([[0], [1], [1], [0]])
@@ -15,8 +15,8 @@ y = np.array([[0], [1], [1], [0]])
 np.random.seed(1)
 
 # synapse matrices
-syn0 = 2*np.random.random((2,2)) - 1
-syn1 = 2*np.random.random((2,1)) - 1
+syn0 = 2*np.random.random((3,20)) - 1
+syn1 = 2*np.random.random((20,1)) - 1
 
 # training step
 for i in range(60000):
@@ -37,8 +37,8 @@ for i in range(60000):
     l1_delta = l1_error * nonlin(l1,deriv=True)
 
     # update synapse weights
-    syn1 = l1.T.dot(l2_delta)
-    syn0 = l0.T.dot(l1_delta)
+    syn1 += l1.T.dot(l2_delta)
+    syn0 += l0.T.dot(l1_delta)
 
 print("Output after training:")
 print(l2)
