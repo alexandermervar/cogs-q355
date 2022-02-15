@@ -15,8 +15,8 @@ y = np.array([[0], [1], [1], [0]])
 np.random.seed(1)
 
 # synapse matrices
-syn0 = 2*np.random.random((3,20)) - 1
-syn1 = 2*np.random.random((20,1)) - 1
+syn0 = 2*np.random.random((3,4)) - 1
+syn1 = 2*np.random.random((4,1)) - 1
 
 # training step
 for i in range(60000):
