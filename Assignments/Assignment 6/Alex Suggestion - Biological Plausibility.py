@@ -1,5 +1,7 @@
 import numpy as np
 
+learningRate = 0.001
+
 def nonlin(x, deriv=False):
     if (deriv==True):
         return x*(1-x)
@@ -19,7 +21,6 @@ forwardSyn0 = 2*np.random.random((3,10)) - 1
 forwardSyn1 = 2*np.random.random((10,1)) - 1
 # New fixed backward weights with SMALL and RANDOM values
 backwardSyn0 = 2*np.random.random((1,10)) - 1
-backwardSyn1 = 2*np.random.random((10,3)) - 1
 
 # training step
 for i in range(100000):
@@ -33,7 +34,6 @@ for i in range(100000):
     # Feedback Alignment Network Nodes
     bl0 = fl2
     bl1 = nonlin(np.dot(bl0, backwardSyn0))
-    bl2 = nonlin(np.dot(bl1, backwardSyn1))
 
     if(i % 10000) == 0:
         print("Feedback Alignment Error: " + str(np.mean(np.abs(l2_error))))
@@ -46,16 +46,16 @@ for i in range(100000):
 
     # oldl1_delta = l1_error * nonlin(fl1,deriv=True)
     # ======================
-    
     # update synapse weights
+
     error = y - bl0
 
     l2_delta = error * nonlin(bl0, deriv=True)
     l1_error = l2_delta.dot(backwardSyn0)
-    l1_delta = l1_error * nonlin(bl1,deriv=True)
+    l1_delta =  l1_error * nonlin(bl1,deriv=True)
 
-    forwardSyn1 += fl1.T.dot(l2_delta)
-    forwardSyn0 += fl0.T.dot(l1_delta)
+    forwardSyn1 += fl1.T.dot(l2_delta) * learningRate
+    forwardSyn0 += fl0.T.dot(l1_delta) * learningRate
 
 print("FEEDBACK ALIGNMENT - Output after training:")
 print(fl2)
