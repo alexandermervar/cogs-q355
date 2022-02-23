@@ -49,8 +49,6 @@ for i in range(10000):
     
     # update synapse weights
     l2_delta = bl0 * learningRate * nonlin(fl2, deriv=True)
-    #TODO: Uncomment line below if Professor Brown says this is incorrect
-    # l1_error = l2_delta.dot(backwardSyn0)
     l1_delta = bl1 * learningRate * nonlin(fl1, deriv=True)
 
     forwardSyn1 += fl1.T.dot(l2_delta)
