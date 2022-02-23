@@ -1,5 +1,7 @@
 import numpy as np
 
+learningRate = 1
+
 def nonlin(x, deriv=False):
     if (deriv==True):
         return x*(1-x)
@@ -19,23 +21,21 @@ forwardSyn0 = 2*np.random.random((3,10)) - 1
 forwardSyn1 = 2*np.random.random((10,1)) - 1
 # New fixed backward weights with SMALL and RANDOM values
 backwardSyn0 = 2*np.random.random((1,10)) - 1
-backwardSyn1 = 2*np.random.random((10,3)) - 1
 
 # training step
-for i in range(100000):
+for i in range(10000):
 
     fl0 = x
     fl1 = nonlin(np.dot(fl0, forwardSyn0))
     fl2 = nonlin(np.dot(fl1, forwardSyn1))
 
-    error = y - fl2
+    l2_error = y - fl2
 
     # Feedback Alignment Network Nodes
-    b10 = y-fl2
-    bl1 = np.dot(b10, backwardSyn0)
-    bl2 = np.dot(bl1, backwardSyn1)
+    bl0 = y - fl2
+    bl1 = np.dot(bl0, backwardSyn0)
 
-    if(i % 10000) == 0:
+    if(i % 1000) == 0:
         print("Feedback Alignment Error: " + str(np.mean(np.abs(l2_error))))
 
     # ========================
@@ -48,11 +48,11 @@ for i in range(100000):
     # ======================
     
     # update synapse weights
-    l2_delta = error * nonlin(np.dot(fl1, forwardSyn1), deriv=True)
-    l1_error = l2_delta.dot(backwardSyn0)
-    l1_delta = l1_error * nonlin(np.dot(fl0, forwardSyn0), deriv=True)
+    l2_delta = bl0 * learningRate * nonlin(fl2, deriv=True)
+    #TODO: Uncomment line below if Professor Brown says this is incorrect
+    # l1_error = l2_delta.dot(backwardSyn0)
+    l1_delta = bl1 * learningRate * nonlin(fl1, deriv=True)
 
-    #TODO: This may (and most likely is) wrong.
     forwardSyn1 += fl1.T.dot(l2_delta)
     forwardSyn0 += fl0.T.dot(l1_delta)
 
