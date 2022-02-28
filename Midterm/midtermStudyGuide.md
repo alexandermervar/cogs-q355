@@ -111,7 +111,7 @@ Disadvantages:
 - If the presynaptic neuron fires before the postsynaptic neuron, the synaptic weight increases. If the presynaptic neuron fires after the postsynaptic neuron, the synaptic weight decreases.
 
 **Draw and explain a plot of weight changes vs. neural activity as described in the BCM model**
-(See Slide 15 and 16)[https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/9%20-%20Biological%20Plausibility%20of%20Neural%20Networks.pdf]
+[See Slide 15 and 16](https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/9%20-%20Biological%20Plausibility%20of%20Neural%20Networks.pdf)
 
 **What happened to neural network research in 1969? 1986?**
 - 1969: Minsky and Papert show that the XOR problem has no linear classifier that can solve it.
