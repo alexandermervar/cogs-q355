@@ -73,26 +73,58 @@ To be invertible, the matrix must be
 - There is no linear classifier that works for the XOR problem
 
 **What is the delta rule?**
-- 
+- The delta rule is the learning rule and implements error driven learning using a test set of data.
 
 **Consider a 2-layer perceptron, with a sum-squared error loss function of E=sum($e^2$), where e=desired-actual outputs.  Using the chain rule from calculus, and assuming gradient descent with learning rate alpha, derive the delta rule for learning.**
-- 
+- [See Link](https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/8%20-%20Supervised%20Learning.pdf)
 
 **Describe three nonlinear signal functions. What are the advantages and disadvantages of each?**
-- 
+- ReLU Function
+- Sigmoid Function
+- Tanh Function
 
 **What is the danger of having too many hidden units in a multi-layer perceptron?**
-- 
+- With more hidden units, there is a need for more training examples. Therefore, there is a risk of overfitting.
 
 **What is the advantage of having more than three layers in a deep learning network?**
-- 
+- More hidden units allows for a network to learn more complicated mappings more accurately.
 
 **What is the advantage of using a cross-entropy loss function instead of a sum squared error loss function?**
-- 
+- Learning doesn't slow down when the output is very large or very negative.
 
 **The modified learning rule “Adam” incorporates two modifications to the usual gradient descent rule. Describe them and why they are useful.**
-- 
+- Adam (adaptive moment optimization) combines momentum and RMSprop.
+  - Momentum: Keeps a moving average of the updates, which eliminates the zig-zag pattern of some learning.
+  - RMSprop: Slow down the updates with big gradients. Therefore, we don't overshoot as often.
 
 ### Week 6
+**Describe the feedback alignment network algorithm and what advantages it has over standard backpropagation, as well as any disadvantages.**
+
+
+**What is the vanishing gradient problem?  How can it be addressed?**
+
+
+**What is spike timing dependent plasticity, i.e. what effects are seen that demonstrate it?**
+
+
+**Draw and explain a plot of weight changes vs. neural activity as described in the BCM model**
+
+
+**What happened to neural network research in 1969? 1986?**
+
+
+**What is the advantage of rectified linear activation functions?**
+
+
+**A 3 layer perceptron can theoretically learn any mapping from input to output, so what is the advantage of having more than 3 layers?**
+
+
+**What is a GPU?  What is a TPU?  Why are they useful for neural networks?**
+
+
+**Describe the proposal of Payeur et al 2021 using bursts as a basis for error backpropagation**
+
+
+**What is the weight mirror algorithm, and how does it work?**
 
 
