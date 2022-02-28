@@ -47,7 +47,7 @@ To be invertible, the matrix must be
 
 ### Week 4
 **What is a sensory homunculus?**
-- A cortical homunculus is a distorted representation of the human body, based on a neurological "map" of the areas and proportions of the human brain dedicated to processing motor functions, or sensory functions, for different parts of the body. (see slide 5)[https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/6%20-%20Plasticity.pdf]
+- A cortical homunculus is a distorted representation of the human body, based on a neurological "map" of the areas and proportions of the human brain dedicated to processing motor functions, or sensory functions, for different parts of the body. [see slide 5](https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/6%20-%20Plasticity.pdf)
 
 **Describe three experiments in monkeys that demonstrate cortical plasticity**
 - Experiment 1: If a nerve is cut, the dorsal surface of areas still receiving a signal will expand to fill unused space
