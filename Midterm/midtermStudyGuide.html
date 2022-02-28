@@ -96,7 +96,7 @@ To be invertible, the matrix must be</p>
 <h3 id="week-4">Week 4</h3>
 <p><strong>What is a sensory homunculus?</strong></p>
 <ul>
-<li>A cortical homunculus is a distorted representation of the human body, based on a neurological &quot;map&quot; of the areas and proportions of the human brain dedicated to processing motor functions, or sensory functions, for different parts of the body. (see slide 5)[<a href="https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/6%20-%20Plasticity.pdf">https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm Slides/6 - Plasticity.pdf</a>]</li>
+<li>A cortical homunculus is a distorted representation of the human body, based on a neurological &quot;map&quot; of the areas and proportions of the human brain dedicated to processing motor functions, or sensory functions, for different parts of the body. <a href="https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/6%20-%20Plasticity.pdf">see slide 5</a></li>
 </ul>
 <p><strong>Describe three experiments in monkeys that demonstrate cortical plasticity</strong></p>
 <ul>
@@ -127,14 +127,85 @@ To be invertible, the matrix must be</p>
 <ul>
 <li>There is no linear classifier that works for the XOR problem</li>
 </ul>
-<h2 id="what-is-the-delta-rule"><strong>What is the delta rule?</strong></h2>
-<h2 id="consider-a-2-layer-perceptron-with-a-sum-squared-error-loss-function-of-esume2-where-edesired-actual-outputs--using-the-chain-rule-from-calculus-and-assuming-gradient-descent-with-learning-rate-alpha-derive-the-delta-rule-for-learning"><strong>Consider a 2-layer perceptron, with a sum-squared error loss function of E=sum(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">e^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>), where e=desired-actual outputs.  Using the chain rule from calculus, and assuming gradient descent with learning rate alpha, derive the delta rule for learning.</strong></h2>
-<h2 id="describe-three-nonlinear-signal-functions-what-are-the-advantages-and-disadvantages-of-each"><strong>Describe three nonlinear signal functions. What are the advantages and disadvantages of each?</strong></h2>
-<h2 id="what-is-the-danger-of-having-too-many-hidden-units-in-a-multi-layer-perceptron"><strong>What is the danger of having too many hidden units in a multi-layer perceptron?</strong></h2>
-<h2 id="what-is-the-advantage-of-having-more-than-three-layers-in-a-deep-learning-network"><strong>What is the advantage of having more than three layers in a deep learning network?</strong></h2>
-<h2 id="what-is-the-advantage-of-using-a-cross-entropy-loss-function-instead-of-a-sum-squared-error-loss-function"><strong>What is the advantage of using a cross-entropy loss function instead of a sum squared error loss function?</strong></h2>
-<h2 id="the-modified-learning-rule-adam-incorporates-two-modifications-to-the-usual-gradient-descent-rule-describe-them-and-why-they-are-useful"><strong>The modified learning rule “Adam” incorporates two modifications to the usual gradient descent rule. Describe them and why they are useful.</strong></h2>
+<p><strong>What is the delta rule?</strong></p>
+<ul>
+<li>The delta rule is the learning rule and implements error driven learning using a test set of data.</li>
+</ul>
+<p><strong>Consider a 2-layer perceptron, with a sum-squared error loss function of E=sum(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">e^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>), where e=desired-actual outputs.  Using the chain rule from calculus, and assuming gradient descent with learning rate alpha, derive the delta rule for learning.</strong></p>
+<ul>
+<li><a href="https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/8%20-%20Supervised%20Learning.pdf">See Link</a></li>
+</ul>
+<p><strong>Describe three nonlinear signal functions. What are the advantages and disadvantages of each?</strong></p>
+<ul>
+<li>ReLU Function</li>
+<li>Sigmoid Function</li>
+<li>Tanh Function</li>
+</ul>
+<p><strong>What is the danger of having too many hidden units in a multi-layer perceptron?</strong></p>
+<ul>
+<li>With more hidden units, there is a need for more training examples. Therefore, there is a risk of overfitting.</li>
+</ul>
+<p><strong>What is the advantage of having more than three layers in a deep learning network?</strong></p>
+<ul>
+<li>More hidden units allows for a network to learn more complicated mappings more accurately.</li>
+</ul>
+<p><strong>What is the advantage of using a cross-entropy loss function instead of a sum squared error loss function?</strong></p>
+<ul>
+<li>Learning doesn't slow down when the output is very large or very negative.</li>
+</ul>
+<p><strong>The modified learning rule “Adam” incorporates two modifications to the usual gradient descent rule. Describe them and why they are useful.</strong></p>
+<ul>
+<li>Adam (adaptive moment optimization) combines momentum and RMSprop.
+<ul>
+<li>Momentum: Keeps a moving average of the updates, which eliminates the zig-zag pattern of some learning.</li>
+<li>RMSprop: Slow down the updates with big gradients. Therefore, we don't overshoot as often.</li>
+</ul>
+</li>
+</ul>
 <h3 id="week-6">Week 6</h3>
+<p><strong>Describe the feedback alignment network algorithm and what advantages it has over standard backpropagation, as well as any disadvantages.</strong>
+Advantages:</p>
+<ul>
+<li>Works well with deeper networks
+Disadvantages:</li>
+<li>The network will not converge if the error does not lie within 90 degrees of what the backprop error would be.</li>
+</ul>
+<p><strong>What is the vanishing gradient problem?  How can it be addressed?</strong></p>
+<ul>
+<li>When deriving the weight updates, the weights may become increasingly small and therefore stop any learning of the network. The application of ReLu or using feedback alignment allows for the training to stay away from a vanishing learning gradient.</li>
+</ul>
+<p><strong>What is spike timing dependent plasticity, i.e. what effects are seen that demonstrate it?</strong></p>
+<ul>
+<li>If the presynaptic neuron fires before the postsynaptic neuron, the synaptic weight increases. If the presynaptic neuron fires after the postsynaptic neuron, the synaptic weight decreases.</li>
+</ul>
+<p><strong>Draw and explain a plot of weight changes vs. neural activity as described in the BCM model</strong>
+(See Slide 15 and 16)[<a href="https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/9%20-%20Biological%20Plausibility%20of%20Neural%20Networks.pdf">https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm Slides/9 - Biological Plausibility of Neural Networks.pdf</a>]</p>
+<p><strong>What happened to neural network research in 1969? 1986?</strong></p>
+<ul>
+<li>1969: Minsky and Papert show that the XOR problem has no linear classifier that can solve it.</li>
+<li>1986: Backprop is invented</li>
+</ul>
+<p><strong>What is the advantage of rectified linear activation functions?</strong></p>
+<ul>
+<li>Helps fight the vanishing gradient problem and allows for learning with lots of hidden layers.</li>
+</ul>
+<p><strong>A 3 layer perceptron can theoretically learn any mapping from input to output, so what is the advantage of having more than 3 layers?</strong></p>
+<ul>
+<li>With more layers you could create more complex networks able to handle more complex inputs. Each subsequent layer becomes a collection of the data from layers/nodes previously.</li>
+</ul>
+<p><strong>What is a GPU?  What is a TPU?  Why are they useful for neural networks?</strong></p>
+<ul>
+<li>GPU: Allows for parallel processing 1000x faster than a CPU</li>
+<li>TPU: Tensor Processing Unit: Much faster than a GPU but has a low amount of precision (8 bits).</li>
+</ul>
+<p><strong>Describe the proposal of Payeur et al 2021 using bursts as a basis for error backpropagation</strong></p>
+<ul>
+<li>Payeur et al. wanted to see how backprop could be used in spiking neurons. The idea was that the error signal increased the bursting but not the overall firing rate. This would implement the delta rule to increase synaptic weights.</li>
+</ul>
+<p><strong>What is the weight mirror algorithm, and how does it work?</strong></p>
+<ul>
+<li>Feedback alignment does not scale well, so train random B weights to converge to transpose of forward weights.</li>
+</ul>
 
     </body>
     </html>

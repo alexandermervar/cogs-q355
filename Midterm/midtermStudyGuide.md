@@ -99,32 +99,36 @@ To be invertible, the matrix must be
 
 ### Week 6
 **Describe the feedback alignment network algorithm and what advantages it has over standard backpropagation, as well as any disadvantages.**
-
+Advantages:
+- Works well with deeper networks
+Disadvantages:
+- The network will not converge if the error does not lie within 90 degrees of what the backprop error would be.
 
 **What is the vanishing gradient problem?  How can it be addressed?**
-
+- When deriving the weight updates, the weights may become increasingly small and therefore stop any learning of the network. The application of ReLu or using feedback alignment allows for the training to stay away from a vanishing learning gradient.
 
 **What is spike timing dependent plasticity, i.e. what effects are seen that demonstrate it?**
-
+- If the presynaptic neuron fires before the postsynaptic neuron, the synaptic weight increases. If the presynaptic neuron fires after the postsynaptic neuron, the synaptic weight decreases.
 
 **Draw and explain a plot of weight changes vs. neural activity as described in the BCM model**
-
+(See Slide 15 and 16)[https://github.com/alexandermervar/cogs-q355/blob/master/Midterm/Midterm%20Slides/9%20-%20Biological%20Plausibility%20of%20Neural%20Networks.pdf]
 
 **What happened to neural network research in 1969? 1986?**
-
+- 1969: Minsky and Papert show that the XOR problem has no linear classifier that can solve it.
+- 1986: Backprop is invented
 
 **What is the advantage of rectified linear activation functions?**
-
+- Helps fight the vanishing gradient problem and allows for learning with lots of hidden layers.
 
 **A 3 layer perceptron can theoretically learn any mapping from input to output, so what is the advantage of having more than 3 layers?**
-
+- With more layers you could create more complex networks able to handle more complex inputs. Each subsequent layer becomes a collection of the data from layers/nodes previously.
 
 **What is a GPU?  What is a TPU?  Why are they useful for neural networks?**
-
+- GPU: Allows for parallel processing 1000x faster than a CPU
+- TPU: Tensor Processing Unit: Much faster than a GPU but has a low amount of precision (8 bits).
 
 **Describe the proposal of Payeur et al 2021 using bursts as a basis for error backpropagation**
-
+- Payeur et al. wanted to see how backprop could be used in spiking neurons. The idea was that the error signal increased the bursting but not the overall firing rate. This would implement the delta rule to increase synaptic weights.
 
 **What is the weight mirror algorithm, and how does it work?**
-
-
+- Feedback alignment does not scale well, so train random B weights to converge to transpose of forward weights.
