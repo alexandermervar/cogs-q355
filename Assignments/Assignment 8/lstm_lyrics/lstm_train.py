@@ -193,14 +193,13 @@ if __name__ == "__main__":
     model = get_model()
     model.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
-    #print (acc)
     file_path = "./checkpoints/LSTM_LYRICS-epoch{epoch:03d}-words%d-sequence%d-minfreq%d-" \
-                "loss{loss:.4f}-acc-val_loss{val_loss:.4f}-val_accuracy{val_accuracy:.4f}" % \
-                (len(words), SEQUENCE_LEN, MIN_WORD_FREQUENCY) #{acc:.4f}
+                "loss{loss:.4f}-acc-val_loss{val_loss:.4f}-val_acc" % \
+                (len(words), SEQUENCE_LEN, MIN_WORD_FREQUENCY) #{acc:.4f}  {val_acc:.4f}
 
-    checkpoint = ModelCheckpoint(file_path, monitor='val_accuracy', save_best_only=True)
+    checkpoint = ModelCheckpoint(file_path, monitor='val_acc', save_best_only=True)
     print_callback = LambdaCallback(on_epoch_end=on_epoch_end)
-    early_stopping = EarlyStopping(monitor='val_accuracy', patience=5)
+    early_stopping = EarlyStopping(monitor='val_acc', patience=5)
     callbacks_list = [checkpoint, print_callback, early_stopping]
 
     examples_file = open(examples, "w")
