@@ -1,0 +1,1470 @@
+
+----- Generating text after Epoch: 0
+----- Diversity:0.3
+----- Generating with seed:
+"you know why 
+ they call it that? 
+ 
+"
+you know why 
+ they call it that? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.4
+----- Generating with seed:
+"you know why 
+ they call it that? 
+ 
+"
+you know why 
+ they call it that? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.5
+----- Generating with seed:
+"you know why 
+ they call it that? 
+ 
+"
+you know why 
+ they call it that? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.6
+----- Generating with seed:
+"you know why 
+ they call it that? 
+ 
+"
+you know why 
+ they call it that? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.7
+----- Generating with seed:
+"you know why 
+ they call it that? 
+ 
+"
+you know why 
+ they call it that? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ on 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+================================================================================
+
+----- Generating text after Epoch: 1
+----- Diversity:0.3
+----- Generating with seed:
+"marsellus (o.s.) 
+ i think you're gonna find – when"
+marsellus (o.s.) 
+ i think you're gonna find – when 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.4
+----- Generating with seed:
+"marsellus (o.s.) 
+ i think you're gonna find – when"
+marsellus (o.s.) 
+ i think you're gonna find – when 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.5
+----- Generating with seed:
+"marsellus (o.s.) 
+ i think you're gonna find – when"
+marsellus (o.s.) 
+ i think you're gonna find – when the 
+ 
+ 
+ 
+ the 
+ – 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.6
+----- Generating with seed:
+"marsellus (o.s.) 
+ i think you're gonna find – when"
+marsellus (o.s.) 
+ i think you're gonna find – when 
+ 
+ 
+ – 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ and 
+ 
+ 
+ mia 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+
+----- Diversity:0.7
+----- Generating with seed:
+"marsellus (o.s.) 
+ i think you're gonna find – when"
+marsellus (o.s.) 
+ i think you're gonna find – when 
+ a i 
+ the the 
+ the 
+ 
+ 
+ it 
+ a 
+ 
+ 
+ 
+ how marsellus 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ vincent 
+ 
+ 
+ 
+ – is 
+ 
+ find 
+ 
+ a that 
+ 
+ 
+ 
+ my this 
+ the
+================================================================================
+
+----- Generating text after Epoch: 2
+----- Diversity:0.3
+----- Generating with seed:
+"looks at him, to the money in his hand, then"
+looks at him, to the money in his hand, then 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.4
+----- Generating with seed:
+"looks at him, to the money in his hand, then"
+looks at him, to the money in his hand, then 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.5
+----- Generating with seed:
+"looks at him, to the money in his hand, then"
+looks at him, to the money in his hand, then 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.6
+----- Generating with seed:
+"looks at him, to the money in his hand, then"
+looks at him, to the money in his hand, then 
+ 
+ 
+ i've 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ each 
+ 
+ 
+ i 
+ 
+ 
+ 
+ 
+ 
+ butch 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.7
+----- Generating with seed:
+"looks at him, to the money in his hand, then"
+looks at him, to the money in his hand, then fuckin' 
+ wolf door on 
+ 
+ you're 
+ the 
+ 
+ 
+ 
+ goddamn 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ no 
+ 
+ 
+ 
+ 
+ butch 
+ – 
+ 
+ 
+ 
+ 
+ the
+================================================================================
+
+----- Generating text after Epoch: 3
+----- Diversity:0.3
+----- Generating with seed:
+"
+ marsellus looks up, sees english dave and walks over"
+
+ marsellus looks up, sees english dave and walks over 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.4
+----- Generating with seed:
+"
+ marsellus looks up, sees english dave and walks over"
+
+ marsellus looks up, sees english dave and walks over the 
+ vincent 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.5
+----- Generating with seed:
+"
+ marsellus looks up, sees english dave and walks over"
+
+ marsellus looks up, sees english dave and walks over 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ i 
+ i 
+ 
+ 
+ 
+ 
+ – 
+ 
+ 
+ the 
+ 
+ 
+ 
+ me 
+
+----- Diversity:0.6
+----- Generating with seed:
+"
+ marsellus looks up, sees english dave and walks over"
+
+ marsellus looks up, sees english dave and walks over 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ be 
+ 
+ be to 
+ 
+ 
+ – the 
+ night i 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ to 
+ 
+ 
+ 
+ 
+ 
+ 
+ that a 
+
+----- Diversity:0.7
+----- Generating with seed:
+"
+ marsellus looks up, sees english dave and walks over"
+
+ marsellus looks up, sees english dave and walks over 
+ 
+ 
+ 
+ 
+ we 
+ 
+ what 
+ 
+ 
+ 
+ 
+ 
+ and 
+ 
+ 
+ a 
+ 
+ 
+ the vincent the room toward a marsellus 
+ 
+ the 
+ need you the young at it, 
+ is marsellus fuckin' 
+ 
+ the his 
+ how
+================================================================================
+
+----- Generating text after Epoch: 4
+----- Diversity:0.3
+----- Generating with seed:
+"butch (o.s.) 
+ what time is it? 
+ 
+ fabienne"
+butch (o.s.) 
+ what time is it? 
+ 
+ fabienne 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ to 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+----- Diversity:0.4
+----- Generating with seed:
+"butch (o.s.) 
+ what time is it? 
+ 
+ fabienne"
+butch (o.s.) 
+ what time is it? 
+ 
+ fabienne 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ 
+ 
+
+----- Diversity:0.5
+----- Generating with seed:
+"butch (o.s.) 
+ what time is it? 
+ 
+ fabienne"
+butch (o.s.) 
+ what time is it? 
+ 
+ fabienne 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ i the 
+ 
+ don't 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ little 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ to
+----- Diversity:0.6
+----- Generating with seed:
+"butch (o.s.) 
+ what time is it? 
+ 
+ fabienne"
+butch (o.s.) 
+ what time is it? 
+ 
+ fabienne 
+ 
+ 
+ 
+ 
+ a now guys 
+ 
+ 
+ 
+ 
+ 
+ a i us 
+ 
+ 
+ 
+ a 
+ 
+ to 
+ 
+ 
+ a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ the 
+ vincent the him. 
+ 
+ 
+ 
+ 
+ we fabienne does
+----- Diversity:0.7
+----- Generating with seed:
+"butch (o.s.) 
+ what time is it? 
+ 
+ fabienne"
+butch (o.s.) 
+ what time is it? 
+ 
+ fabienne 
+ you 
+ we 
+ 
+ 
+ my 
+ 
+ 
+ 
+ 
+ 
+ does 
+ i 
+ 
+ you butch 
+ i into what is your 
+ 
+ is 
+ look you. my 
+ 
+ 
+ i man. of be 
+ 
+ the 
+ 
+ the fabienne like and
+================================================================================
+
+----- Generating text after Epoch: 5
+----- Diversity:0.3
+----- Generating with seed:
+"– i said don't do that – 
+ 
+ vincent"
+– i said don't do that – 
+ 
+ vincent 
+ 
+ 
+ the it 
+ 
+ 
+ 
+ a is 
+ 
+ jimmie 
+ 
+ 
+ 
+ 
+ a to that 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ a no the 
+ 
+ that 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ to and 
+
+----- Diversity:0.4
+----- Generating with seed:
+"– i said don't do that – 
+ 
+ vincent"
+– i said don't do that – 
+ 
+ vincent 
+ 
+ 
+ 
+ a to a i in 
+ 
+ to 
+ 
+ – 
+ 
+ 
+ 
+ 
+ i 
+ guys 
+ gonna 
+ a 
+ is man 
+ 
+ 
+ 
+ 
+ 
+ to 
+ a a to 
+ 
+ 
+ time to 
+ 
+ 
+ to
+----- Diversity:0.5
+----- Generating with seed:
+"– i said don't do that – 
+ 
+ vincent"
+– i said don't do that – 
+ 
+ vincent 
+ – is do get a 
+ 
+ be 
+ 
+ see 
+ 
+ 
+ 
+ 
+ 
+ the you i in a what the the that 
+ him. 
+ 
+ 
+ the two we're 
+ to 
+ 
+ 
+ 
+ to her 
+ 
+ 
+ that 
+ 
+ 
+
+----- Diversity:0.6
+----- Generating with seed:
+"– i said don't do that – 
+ 
+ vincent"
+– i said don't do that – 
+ 
+ vincent 
+ 
+ woman 
+ young and the – the the it at or my head: your my and vincent 
+ 
+ to it. to time 
+ 
+ night 
+ 
+ 
+ 
+ i said the fourth 
+ said 
+ 
+ 
+ that 
+ 
+ the to i time the 
+
+----- Diversity:0.7
+----- Generating with seed:
+"– i said don't do that – 
+ 
+ vincent"
+– i said don't do that – 
+ 
+ vincent 
+ – that 
+ of 
+ 
+ 
+ the be table 
+ is 
+ his a 
+ in i the your 
+ to no, a his about 
+ 
+ are a the back at where be i good no, a butch bathroom 
+ we living 
+ bathroom don't pumpkin 
+
+================================================================================
