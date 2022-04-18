@@ -66,6 +66,8 @@ class Evader:
         # Here I initialize all of the variables for the Braitenberg class
         self.xpos = 10.0 * np.cos(angle)                      # Braitenberg vehicle's x position, starts in middle of world
         self.ypos = 10.0 * np.sin(angle)                      # Braitenberg vehicle's y position, starts in middle of world
+        self.starting_xpos = self.xpos                        # starting x position of the evader
+        self.starting_ypos = self.ypos                        # starting y position of the evader
         self.orientation = np.random.random()*2*np.pi         # Braitenberg vehicle's orientation, starts at random
         self.velocity = 0.0                                   # Braitenberg vehicle's velocity, starts at 0
         self.radius = 1.0                                     # the size/radius of the Braitenberg vehicle
