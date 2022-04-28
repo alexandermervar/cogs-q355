@@ -1,3 +1,7 @@
+# To learn how to use reinforcement Q learning I followed this sentdex tutorial
+# Link: https://pythonprogramming.net/own-environment-q-learning-reinforcement-learning-python-tutorial/
+# After I followed that tutorial, I then starting to play around with the code
+
 import numpy as np
 from PIL import Image
 import cv2
@@ -8,46 +12,46 @@ import time
 
 style.use("ggplot")
 
-SIZE = 10
+size = 10
 
-HM_EPISODES = 25000
-MOVE_PENALTY = 1
-ENEMY_PENALTY = 300
-FOOD_REWARD = 25
-epsilon = 0.9
-EPS_DECAY = 0.9998  # Every episode will be epsilon*EPS_DECAY
-SHOW_EVERY = 3000  # how often to play through env visually.
+trainingDuration = 500000
+durationInSteps = 200 # How long each episode lasts
 
-start_q_table = None # None or Filename
+movePenalty = 1
+enemyPenalty = 300
+foodReward = 25
+epsilon = 0.9 # set to 0 when loading from a qtable
+decay = 0.9999
+showEvery = 3000 # How often to show the agent on the screen (in regards to training duration)
 
-LEARNING_RATE = 0.1
-DISCOUNT = 0.95
+start_q_table = "myAgentQTable.pickle" # place fileName here
 
-PLAYER_N = 1  # player key in dict
-FOOD_N = 2  # food key in dict
-ENEMY_N = 3  # enemy key in dict
+learningRate = 0.1
+discount = 0.95
 
-# the dict!
-d = {1: (255, 175, 0),
-     2: (0, 255, 0),
+playerKey = 1  # player key
+foodKey = 2  # food key
+enemyKey = 3  # enemy key
+
+# Dictionary
+d = {1: (0, 255, 0),
+     2: (0, 175, 255),
      3: (0, 0, 255)}
 
 
-class Blob:
+class Agent:
     def __init__(self):
-        self.x = np.random.randint(0, SIZE)
-        self.y = np.random.randint(0, SIZE)
+        self.x = np.random.randint(0, size)
+        self.y = np.random.randint(0, size)
 
     def __str__(self):
-        return f"{self.x}, {self.y}"
+        return "Agent Location: [{},{}]".format(self.x, self.y)
 
     def __sub__(self, other):
         return (self.x-other.x, self.y-other.y)
 
     def action(self, choice):
-        '''
-        Gives us 4 total movement options. (0,1,2,3)
-        '''
+        # Where the actions are defined
         if choice == 0:
             self.move(x=1, y=1)
         elif choice == 1:
@@ -56,6 +60,14 @@ class Blob:
             self.move(x=-1, y=1)
         elif choice == 3:
             self.move(x=1, y=-1)
+        elif choice == 4:
+            self.move(x=0, y=1)
+        elif choice == 5:
+            self.move(x=0, y=-1)
+        elif choice == 6:
+            self.move(x=-1, y=0)
+        elif choice == 7:
+            self.move(x=1, y=0)
 
     def move(self, x=False, y=False):
 
@@ -72,110 +84,109 @@ class Blob:
             self.y += y
 
 
-        # If we are out of bounds, fix!
+        # Out of bounds fix
         if self.x < 0:
             self.x = 0
-        elif self.x > SIZE-1:
-            self.x = SIZE-1
+        elif self.x > size-1:
+            self.x = size-1
         if self.y < 0:
             self.y = 0
-        elif self.y > SIZE-1:
-            self.y = SIZE-1
+        elif self.y > size-1:
+            self.y = size-1
 
 
 if start_q_table is None:
     # initialize the q-table#
     q_table = {}
-    for i in range(-SIZE+1, SIZE):
-        for ii in range(-SIZE+1, SIZE):
-            for iii in range(-SIZE+1, SIZE):
-                    for iiii in range(-SIZE+1, SIZE):
-                        q_table[((i, ii), (iii, iiii))] = [np.random.uniform(-5, 0) for i in range(4)]
+    for x1 in range(-size+1, size):
+        for y1 in range(-size+1, size):
+            for x2 in range(-size+1, size):
+                    for y2 in range(-size+1, size):
+                        # TODO: This may be broken because of the modified action space
+                        q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5, 0) for i in range(8)]
 
 else:
     with open(start_q_table, "rb") as f:
         q_table = pickle.load(f)
 
-
-# can look up from Q-table with: print(q_table[((-9, -2), (3, 9))]) for example
-
 episode_rewards = []
 
-for episode in range(HM_EPISODES):
-    player = Blob()
-    food = Blob()
-    enemy = Blob()
-    if episode % SHOW_EVERY == 0:
+for episode in range(trainingDuration):
+    player = Agent()
+    food = Agent()
+    enemy = Agent()
+    if episode % showEvery == 0:
         print(f"on #{episode}, epsilon is {epsilon}")
-        print(f"{SHOW_EVERY} ep mean: {np.mean(episode_rewards[-SHOW_EVERY:])}")
+        print(f"{showEvery} ep mean: {np.mean(episode_rewards[-showEvery:])}")
         show = True
     else:
         show = False
 
     episode_reward = 0
-    for i in range(200):
+    for i in range(durationInSteps):
         obs = (player-food, player-enemy)
-        #print(obs)
+
+        # Retrieves the action
         if np.random.random() > epsilon:
-            # GET THE ACTION
             action = np.argmax(q_table[obs])
         else:
-            action = np.random.randint(0, 4)
-        # Take the action!
+            action = np.random.randint(0, 8)
+        
         player.action(action)
 
-        #### MAYBE ###
-        #enemy.move()
-        #food.move()
-        ##############
+        # TODO: Uncomment to add complexity to model
+        # enemy.move()
+        # food.move()
 
         if player.x == enemy.x and player.y == enemy.y:
-            reward = -ENEMY_PENALTY
+            reward = -enemyPenalty
         elif player.x == food.x and player.y == food.y:
-            reward = FOOD_REWARD
+            reward = foodReward
         else:
-            reward = -MOVE_PENALTY
-        ## NOW WE KNOW THE REWARD, LET'S CALC YO
+            reward = -movePenalty
+
         # first we need to obs immediately after the move.
         new_obs = (player-food, player-enemy)
         max_future_q = np.max(q_table[new_obs])
         current_q = q_table[obs][action]
 
-        if reward == FOOD_REWARD:
-            new_q = FOOD_REWARD
+        # Implement Q-learning
+        if reward == foodReward:
+            new_q = foodReward
+        elif reward == -enemyPenalty:
+            new_q = -enemyPenalty
         else:
-            new_q = (1 - LEARNING_RATE) * current_q + LEARNING_RATE * (reward + DISCOUNT * max_future_q)
+            new_q = (1 - learningRate) * current_q + learningRate * (reward + discount * max_future_q)
         q_table[obs][action] = new_q
 
         if show:
-            env = np.zeros((SIZE, SIZE, 3), dtype=np.uint8)  # starts an rbg of our size
-            env[food.x][food.y] = d[FOOD_N]  # sets the food location tile to green color
-            env[player.x][player.y] = d[PLAYER_N]  # sets the player tile to blue
-            env[enemy.x][enemy.y] = d[ENEMY_N]  # sets the enemy location to red
-            img = Image.fromarray(env, 'RGB')  # reading to rgb. Apparently. Even tho color definitions are bgr. ???
-            img = img.resize((300, 300))  # resizing so we can see our agent in all its glory.
-            cv2.imshow("image", np.array(img))  # show it!
-            if reward == FOOD_REWARD or reward == -ENEMY_PENALTY:  # crummy code to hang at the end if we reach abrupt end for good reasons or not.
-                if cv2.waitKey(500) & 0xFF == ord('q'):
+            env = np.zeros((size, size, 3), dtype=np.uint8)
+            env[food.x][food.y] = d[foodKey]
+            env[player.x][player.y] = d[playerKey]
+            env[enemy.x][enemy.y] = d[enemyKey]
+            img = Image.fromarray(env, 'RGB')
+            img = img.resize((500, 500), resample=Image.BOX)
+            cv2.imshow("Reinforcement Learning with Gridworld", np.array(img))
+            if reward == foodReward or reward == -enemyPenalty:
+                if cv2.waitKey(500) & 0xFF == ord('q'): # wait when episode is over (by either getting food or running into enemy)
                     break
             else:
-                if cv2.waitKey(1) & 0xFF == ord('q'):
+                if cv2.waitKey(5) & 0xFF == ord('q'): # amount of time to display each step
                     break
 
         episode_reward += reward
-        if reward == FOOD_REWARD or reward == -ENEMY_PENALTY:
+        if reward == foodReward or reward == -enemyPenalty:
             break
 
-    #print(episode_reward)
     episode_rewards.append(episode_reward)
-    epsilon *= EPS_DECAY
+    epsilon *= decay
 
-moving_avg = np.convolve(episode_rewards, np.ones((SHOW_EVERY,))/SHOW_EVERY, mode='valid')
+moving_avg = np.convolve(episode_rewards, np.ones((showEvery,))/showEvery, mode='valid')
 
 plt.plot([i for i in range(len(moving_avg))], moving_avg)
-plt.ylabel(f"Reward {SHOW_EVERY}ma")
+plt.ylabel(f"Reward {showEvery}ma")
 plt.xlabel("episode #")
 plt.show()
 
-with open(f"qtable-{int(time.time())}.pickle", "wb") as f:
+with open("myAgentQTable.pickle", "wb") as f:
     pickle.dump(q_table, f)
