@@ -1,6 +1,6 @@
 import numpy as np
 # import keras.backend.tensorflow_backend as backend
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Activation, Flatten
 from keras.callbacks import TensorBoard
 import tensorflow as tf
@@ -15,6 +15,9 @@ import GridworldEnv
 
 # NOTE: You can use the _ to denote a comma in a large number in python in order to make it easier to read
 # This is used with the batch size. So, we take a random sample of this size to act as the batch.
+
+# How to load a model
+LOAD_MODEL = None
 
 # Episodes is the number of times we run through the game
 EPISODES = 20_000
@@ -89,24 +92,29 @@ class DQNAgent:
         self.target_update_counter = 0
 
     def createModel(self):
-        model = Sequential()
+        if LOAD_MODEL is not None:
+            print(f"Loading model from {LOAD_MODEL}")
+            model = load_model(LOAD_MODEL)
+            print(f"Loaded model from {LOAD_MODEL}")
+        else:
+            model = Sequential()
 
-        model.add(Conv2D(256, (3, 3), input_shape=env.OBSERVATION_SPACE_VALUES))
-        model.add(Activation('relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.2))
+            model.add(Conv2D(256, (3, 3), input_shape=env.OBSERVATION_SPACE_VALUES))
+            model.add(Activation('relu'))
+            model.add(MaxPooling2D(pool_size=(2, 2)))
+            model.add(Dropout(0.2))
 
-        model.add(Conv2D(256, (3, 3)))
-        model.add(Activation('relu'))
-        model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Dropout(0.2))
+            model.add(Conv2D(256, (3, 3)))
+            model.add(Activation('relu'))
+            model.add(MaxPooling2D(pool_size=(2, 2)))
+            model.add(Dropout(0.2))
 
-        model.add(Flatten())
-        model.add(Dense(64))
+            model.add(Flatten())
+            model.add(Dense(64))
 
-        model.add(Dense(env.ACTION_SPACE_SIZE, activation='linear'))
-        #model.compile(loss="mse", optimizer='adam'(lr=0.001), metrics=['accuracy'])
-        model.compile(loss="mse", optimizer='adam', metrics=['accuracy'])
+            model.add(Dense(env.ACTION_SPACE_SIZE, activation='linear'))
+            #model.compile(loss="mse", optimizer='adam'(lr=0.001), metrics=['accuracy'])
+            model.compile(loss="mse", optimizer='adam', metrics=['accuracy'])
         return model
 
     def update_replay_memory(self, transition):
