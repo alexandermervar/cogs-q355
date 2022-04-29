@@ -1,17 +1,17 @@
-import random
-from keras.models import Sequential
-from keras.layers import Dense, Conv2D, Activation, MaxPooling2D, Dropout, Flatten
-from keras.callbacks import TensorBoard
-from keras.optimizers import Adam
-from collections import deque
-import tensorflow as tf
-import os
-import tqdm as tqdm
-import GridworldEnv
-
-import time
-
 import numpy as np
+# import keras.backend.tensorflow_backend as backend
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Activation, Flatten
+from keras.callbacks import TensorBoard
+import tensorflow as tf
+from collections import deque
+import time
+import random
+from tqdm import tqdm
+import os
+from PIL import Image
+import cv2
+import GridworldEnv
 
 # NOTE: You can use the _ to denote a comma in a large number in python in order to make it easier to read
 # This is used with the batch size. So, we take a random sample of this size to act as the batch.
@@ -52,7 +52,7 @@ ep_rewards = [-200]
 # For more repetitive results
 random.seed(1)
 np.random.seed(1)
-tf.set_random_seed(1)
+tf.random.set_seed(1)
 
 # Memory fraction, used mostly when trai8ning multiple agents
 # TODO: You will need to define MEMORY_FRACTION
@@ -88,7 +88,7 @@ class DQNAgent:
 
         self.target_update_counter = 0
 
-    def create_model(self):
+    def createModel(self):
         model = Sequential()
 
         model.add(Conv2D(256, (3, 3), input_shape=env.OBSERVATION_SPACE_VALUES))
@@ -105,13 +105,14 @@ class DQNAgent:
         model.add(Dense(64))
 
         model.add(Dense(env.ACTION_SPACE_SIZE, activation='linear'))
-        model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=['accuracy'])
+        #model.compile(loss="mse", optimizer='adam'(lr=0.001), metrics=['accuracy'])
+        model.compile(loss="mse", optimizer='adam', metrics=['accuracy'])
         return model
 
     def update_replay_memory(self, transition):
         self.replay_memory.append(transition)
 
-    def get_qs(self, state, step):
+    def get_qs(self, state):
         return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
 
     def train(self, terminal_state, step):
@@ -164,34 +165,37 @@ class DQNAgent:
 
 class ModifiedTensorBoard(TensorBoard):
 
-    # Overriding init to set initial step and writer (we want one log file for all .fit() calls)
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.step = 1
-        self.writer = tf.summary.FileWriter(self.log_dir)
+        self.writer = tf.summary.create_file_writer(self.log_dir)
+        self._log_write_dir = self.log_dir
 
-    # Overriding this method to stop creating default log writer
     def set_model(self, model):
-        pass
+        self.model = model
 
-    # Overrided, saves logs with our step number
-    # (otherwise every .fit() will start writing from 0th step)
+        self._train_dir = os.path.join(self._log_write_dir, 'train')
+        self._train_step = self.model._train_counter
+
+        self._val_dir = os.path.join(self._log_write_dir, 'validation')
+        self._val_step = self.model._test_counter
+
+        self._should_write_train_graph = False
+
     def on_epoch_end(self, epoch, logs=None):
         self.update_stats(**logs)
 
-    # Overrided
-    # We train for one batch only, no need to save anything at epoch end
     def on_batch_end(self, batch, logs=None):
         pass
 
-    # Overrided, so won't close writer
     def on_train_end(self, _):
         pass
 
-    # Custom method for saving own metrics
-    # Creates writer, writes custom metrics and closes writer
     def update_stats(self, **stats):
-        self._write_logs(stats, self.step)
+        with self.writer.as_default():
+            for key, value in stats.items():
+                tf.summary.scalar(key, value, step = self.step)
+                self.writer.flush()
 
 # ======================================================================================================================
 
@@ -209,7 +213,7 @@ for episode in tqdm(range(1, EPISODES + 1), ascii=True, unit='episodes'):
     done = False
 
     while not done:
-        if np.random.radnom() > epsilon:
+        if np.random.random() > epsilon:
             action = np.argmax(agent.get_qs(current_state))
         else:
             action = np.random.randint(0, env.ACTION_SPACE_SIZE)

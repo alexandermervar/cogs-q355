@@ -20,13 +20,13 @@ class GridworldEnv:
         3: (0, 0, 255)}
 
     def reset(self):
-        self.player = Gridworld(self.SIZE)
-        self.food = Gridworld(self.SIZE)
+        self.player = Gridworld.Gridworld(self.SIZE)
+        self.food = Gridworld.Gridworld(self.SIZE)
         while self.food == self.player:
-            self.food = Gridworld(self.SIZE)
-        self.enemy = Gridworld(self.SIZE)
+            self.food = Gridworld.Gridworld(self.SIZE)
+        self.enemy = Gridworld.Gridworld(self.SIZE)
         while self.enemy == self.player or self.enemy == self.food:
-            self.enemy = Gridworld(self.SIZE)
+            self.enemy = Gridworld.Gridworld(self.SIZE)
 
         self.episode_step = 0
 
