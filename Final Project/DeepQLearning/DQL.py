@@ -40,6 +40,7 @@ np.random.seed(1)
 tf.set_random_seed(1)
 
 # Memory fraction, used mostly when trai8ning multiple agents
+# TODO: You will need to define MEMORY_FRACTION
 #gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)
 #backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))
 
