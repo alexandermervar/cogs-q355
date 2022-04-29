@@ -4,6 +4,9 @@ from keras.layers import Dense, Conv2D, Activation, MaxPooling2D, Dropout, Flatt
 from keras.callbacks import TensorBoard
 from keras.optimizers import Adam
 from collections import deque
+import tensorflow as tf
+import os
+import GridworldEnv
 
 import time
 
@@ -19,12 +22,30 @@ REPLAY_MEMORY_SIZE = 50_000
 MIN_REPLAY_MEMORY_SIZE = 1_000
 # Size of sample from memory for training
 MINIBATCH_SIZE = 64
+# How oftten to update the target model
+UPDATE_TARGET_EVERY = 5
 
 # Define the model name
 MODEL_NAME = "256x2"
 
 # TODO: Leave a comment to describe what this is
 DISCOUNT = 0.99
+
+# For stats
+ep_rewards = [-200]
+
+# For more repetitive results
+random.seed(1)
+np.random.seed(1)
+tf.set_random_seed(1)
+
+# Memory fraction, used mostly when trai8ning multiple agents
+#gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)
+#backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))
+
+# Create models folder
+if not os.path.isdir('models'):
+    os.makedirs('models')
 
 # This class creates the Deep Q-Learning model
 class DQNAgent:
@@ -109,7 +130,12 @@ class DQNAgent:
         
         self.model.fit(np.array(x)/255, np.array(y), batch_size=MINIBATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if terminal_state else None)
 
+        if terminal_state:
+            self.target_update_counter += 1
 
+        if self.target_update_counter > UPDATE_TARGET_EVERY:
+            self.target_model.set_weights(self.model.get_weights())
+            self.target_update_counter = 0
 
 
 
@@ -150,3 +176,9 @@ class ModifiedTensorBoard(TensorBoard):
     # Creates writer, writes custom metrics and closes writer
     def update_stats(self, **stats):
         self._write_logs(stats, self.step)
+
+# ======================================================================================================================
+
+# Run Training!
+env = GridworldEnv.GridworldEnv()
+agent = DQNAgent()
