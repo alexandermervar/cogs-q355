@@ -14,7 +14,7 @@ style.use("ggplot")
 
 size = 10
 
-trainingDuration = 500000
+trainingDuration = 20000
 durationInSteps = 200 # How long each episode lasts
 
 movePenalty = 1
@@ -24,7 +24,7 @@ epsilon = 0.9 # set to 0 when loading from a qtable
 decay = 0.9999
 showEvery = 3000 # How often to show the agent on the screen (in regards to training duration)
 
-start_q_table = "myAgentQTable.pickle" # place fileName here
+start_q_table = None # place fileName here
 
 learningRate = 0.1
 discount = 0.95
@@ -96,13 +96,12 @@ class Agent:
 
 
 if start_q_table is None:
-    # initialize the q-table#
+    # initialize the q-table
     q_table = {}
     for x1 in range(-size+1, size):
         for y1 in range(-size+1, size):
             for x2 in range(-size+1, size):
                     for y2 in range(-size+1, size):
-                        # TODO: This may be broken because of the modified action space
                         q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5, 0) for i in range(8)]
 
 else:
